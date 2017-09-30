@@ -1,0 +1,40 @@
+{
+  "name": "Pier",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "8.0.0"
+  },
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "adal-node": "^0.1.22",
+    "azure-storage": "^2.5.0",
+    "bluebird": "^3.5.0",
+    "debug": "^2.6.3",
+    "documentdb": "^1.12.2",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^2.0.1",
+    "koa-onerror": "^1.2.1",
+    "koa-router": "^7.1.1",
+    "koa-static": "^3.0.0",
+    "koa-views": "^5.2.1",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.18.1",
+    "mssql": "^4.0.4",
+    "pug": "^2.0.0-rc.1",
+    "redis": "^2.8.0",
+    "rsmq": "^0.8.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  }
+}

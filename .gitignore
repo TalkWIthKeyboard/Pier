@@ -1,0 +1,6 @@
+bin/
+log/
+node_modules/
+.idea/
+services/cluster/temporary/
+public/bower

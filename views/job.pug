@@ -1,0 +1,85 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Pier
+    html(lang='en')
+    head
+      meta(charset='UTF-8')
+      title Pier
+      link(href='/bower/bootstrap/dist/css/bootstrap.css', rel='stylesheet', media='screen')
+      link(href='/stylesheets/index.css', rel='stylesheet')
+      script(src='/bower/jquery/dist/jquery.min.js')
+      script(src='/bower/bootstrap/dist/js/bootstrap.min.js')
+      script(src='/javascripts/job.js')
+
+      style.
+        textarea {
+          resize: none;
+        }
+
+        .img-polaroid {
+          height: 100%;
+          border-radius: 10px;
+          border: #e5e5e5 solid 2px;
+        }
+    body
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            ul.nav.navbar-nav
+              li
+                a(href='/')
+                  | Environment
+              li.active
+                a(href='/job')
+                  | Job
+                  span.sr-only (current)
+
+      div
+        .container(style='margin-top: 0px;text-align:center')
+          h2.text-center(style='margin-top: 0px') Job Manager
+          p(style='display: none')
+            .text-right(style='margin: 10px 0px')
+
+              .btn-group(style='margin: 0px 10px')
+                button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | LOGS
+                  span.caret
+                ul.dropdown-menu
+                  each name in names
+                    - url = '/log/' + name
+                    li
+                      a.show-log-btn(data-url = url) #{name}
+
+              if (!status)
+                button#start-job-btn.btn.btn-success.btn(type='button', style='margin: 0px 10px') START
+              else
+                button#stop-job-btn.btn.btn-danger.btn(type='button', style='margin: 0px 10px') STOP
+
+              button#del-log-btn.btn.btn-danger.btn(type='button', data-toggle='modal', data-target='#del-sure-modal') DELETE
+
+          div.producer
+            div.bs-example
+              p PRODUCER
+            figure.highlight
+              pre.producer #{content.producer}
+
+          div.customer
+            div.bs-example
+              p CUSTOMER
+            figure.highlight
+              pre.customer #{content.customer}
+
+          #del-sure-modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                  .modal-body
+                    .h3 Are you sure delete all logs ?
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal')
+                      | CLOSE
+                    button#del-sure-btn.btn.btn-primary(type='button')
+                      | SURE

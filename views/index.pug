@@ -1,0 +1,105 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Pier
+    html(lang='en')
+    head
+      meta(charset='UTF-8')
+      title Pier
+      link(href='/bower/bootstrap/dist/css/bootstrap.css', rel='stylesheet', media='screen')
+      link(href='/stylesheets/index.css', rel='stylesheet')
+      script(src='/bower/jquery/dist/jquery.min.js')
+      script(src='/bower/bootstrap/dist/js/bootstrap.min.js')
+      script(src='/javascripts/index.js')
+
+      style.
+        textarea {
+          resize: none;
+        }
+
+        .img-polaroid {
+          height: 100%;
+          border-radius: 10px;
+          border: #e5e5e5 solid 2px;
+        }
+    body
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            ul.nav.navbar-nav
+              li.active
+                a(href='/')
+                  | Environment
+                  span.sr-only (current)
+              li
+                a(href='/job')
+                  | Job
+
+      div
+        .container(style='margin-top: 0px;text-align:center')
+          h2.text-center(style='margin-top: 0px') Environment Manager
+          p(style='display: none')
+          .text-right(style='margin: 10px 0px')
+
+            button#create-button.btn.btn-default.btn(type='button', data-toggle='modal', data-target='#infoModal')
+              span.glyphicon.glyphicon-plus(aria-hidden='true')
+              |   CREATE
+
+          table.table.table-hover(style='text-align:left;')
+            thead
+              tr
+                th Name
+                th NameDisplay
+                th DisplayUI
+                th Enable
+                th Operation
+            tbody
+              each env in envs
+                tr
+                  td #{env.name}
+                  td #{env.nameDisplay}
+                  if env.displayUI
+                    td
+                      span.glyphicon.glyphicon-ok
+                  else
+                    td
+                      span.glyphicon.glyphicon-remove
+
+                  if env.enable
+                    td
+                      span.glyphicon.glyphicon-ok
+                  else
+                    td
+                      span.glyphicon.glyphicon-remove
+
+                  td
+                    button.btn.btn-warning.btn-sm.tbody-btn.detail-button(type='button', data-toggle='modal', data-target='#infoModal')  DETAIL
+                    button.btn.btn-info.btn-sm.tbody-btn.update-button(type='button', data-toggle='modal', data-target='#infoModal')  UPDATE
+                    button.btn.btn-danger.btn-sm.tbody-btn.delete-button(type='button', data-toggle='modal', data-target='#deleteSureModal')  DELETE
+
+        #infoModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                h4#myModalLabel.modal-title
+                  | Environment Information -
+                  span#create-or-change
+              .modal-body
+                form.form-horizontal
+
+        #deleteSureModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                .modal-body
+                  .h3 Are you sure delete this environment ?
+                .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal')
+                    | CLOSE
+                  button#delete-sure-button.btn.btn-primary(type='button')
+                    | SURE
+
+

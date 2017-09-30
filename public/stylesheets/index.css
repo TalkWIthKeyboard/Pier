@@ -1,0 +1,53 @@
+.form-control {
+    margin-right: 10px;
+}
+
+.form-choose {
+    text-align: center;
+}
+
+.tbody-btn {
+    margin-right: 3px;
+}
+
+.highlight {
+    padding: 9px 14px;
+    margin-bottom: 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+}
+
+.highlight p {
+    margin: 0;
+}
+
+.bs-example {
+    position: relative;
+    padding: 4px;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: none;
+    border-style: solid;
+}
+
+.bs-example p {
+    margin: 0;
+}
+
+pre {
+    border: 0;
+    text-align: left;
+    background-color: #f7f7f9;
+    max-height: 600px;
+    overflow: auto
+}
+
+.dropdown-menu {
+    max-height: 300px;
+    overflow: auto;
+}
